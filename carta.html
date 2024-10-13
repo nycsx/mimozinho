@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Você</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #93cbf3; /* Cor de fundo da página em tons azuis */
+        }
+
+        /* Estilo para posicionar o botão no topo, com animação de saltar */
+        #playPauseButton {
+            position: absolute;
+            top: 20px; /* Posição do botão no topo */
+            left: 50%;
+            transform: translate(-50%, 0); /* Centraliza o botão */
+            padding: 15px 30px;
+            background-color: #0277bd; /* Cor do botão */
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        #playPauseButton:hover {
+            background-color: #01579b; /* Cor do botão ao passar o mouse */
+            transform: translate(-50%, 0) scale(1.05); /* Efeito de saltar */
+        }
+
+        /* Estilos para a carta */
+        .carta-page {
+            background-color: #e0f0f8; /* Fundo da carta */
+            padding: 40px; /* Espaçamento interno */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Largura máxima da carta */
+            width: 90%; /* Largura responsiva */
+            margin: 80px auto; /* Centraliza a carta */
+            color: #2d4c5f;
+            overflow: hidden; /* Para evitar corte do conteúdo */
+        }
+
+        .carta {
+            font-size: 1.2rem; /* Tamanho da fonte */
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para as fotos */
+        .fotos {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px; /* Espaçamento entre a carta e as fotos */
+        }
+
+        .fotos img {
+            width: 32%; /* Ajuste para manter fotos quadradas */
+            aspect-ratio: 1; /* Mantém a proporção quadrada */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .carta-page {
+                padding: 20px; /* Reduz o padding em telas menores */
+            }
+            .fotos img {
+                width: 100%; /* Imagens em dispositivos menores ocupam toda a largura */
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão para tocar/pausar a música fora do container da carta -->
+    <button id="playPauseButton">Tocar Música 🤍</button>
+
+    <div class="container carta-page">
+        <h1 align="center">Uma Carta para Você</h1>
+        <p class="carta">
+            Esses últimos tempos têm sido um desafio para nós dois no que diz respeito a nos conhecermos ainda mais e, o mais importante, a nos adaptarmos um ao outro e às nossas rotinas. Você me faz muito feliz, sabia? Um dos pontos que menos demonstro com frequência é a minha gratidão e o meu amor por você. Sei que isso pode fazer falta e que, de repente, você gostaria de receber mais sinais de reciprocidade e carinho. Vou me esforçar para melhorar nesse aspecto, por você, por mim, por nós.
+        </p>
+        <p class="carta">
+            Hoje (13/10) estaremos juntinhos à noite, e quero que seja leve, bom e agradável. Estarei levando meu UNO da Barbie para jogarmos, o baralho para brincarmos de três, dois, um, e meu dominó. Lembra de quando brincávamos e morríamos de rir? Vamos nos permitir viver mais momentos assim! Claro, você ainda vai maratonar os vídeos do TikTok que tenho para te mostrar, mas o que quero para hoje é menos celular. Estamos muito conectados quando estamos juntos, e sei que posso ter um vício (KKKKK), mas vamos nos divertir, meu amor. O nosso amor quebra barreiras; você é o meu "Casal Bem Louco".
+        </p>
+        <p class="carta">
+            Eu te amo eternamente, meu pedacinho de pão de ló. 🤍
+        </p>
+        <div class="fotos">
+            <img src="foto1.jpg" alt="Foto 1">
+            <img src="foto2.jpg" alt="Foto 2">
+            <img src="foto3.jpg" alt="Foto 3">
+        </div>
+    </div>
+
+    <!-- Música de fundo -->
+    <audio id="backgroundMusic">
+        <source src="casalbemlouco.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução de áudio.
+    </audio>
+
+    <script>
+        const playPauseButton = document.getElementById('playPauseButton');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        let isPlaying = false;
+
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                playPauseButton.textContent = "Tocar Música 🎵";
+            } else {
+                backgroundMusic.play();
+                playPauseButton.textContent = "Pausar Música ⏸";
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>
